@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vaga garantida · ECOM360</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#241C37">
+
+  <script src="assets/js/config.js"></script>
+
+  <!-- dataLayer ANTES do GTM + snippet oficial -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    (function(){
+      var id = (window.CONFIG && window.CONFIG.gtmId) || "";
+      if (!id) return;
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',id);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDS4ZD45"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <main class="ty section--ink grain">
+    <div class="ty__inner">
+      <svg class="ty__check" viewBox="0 0 52 52" aria-hidden="true">
+        <circle cx="26" cy="26" r="24" fill="none" stroke-width="3"></circle>
+        <path d="M15 27 l7 7 l15 -16"></path>
+      </svg>
+
+      <h1 id="ty-title">Vaga garantida.</h1>
+      <p>
+        Falta um passo: entrar no Grupo VIP. É lá que a aula, o link e os bônus
+        são liberados.
+      </p>
+
+      <a href="#" id="btn-grupo" class="btn" target="_self">Entrar no Grupo VIP agora</a>
+
+      <p class="ty__countdown" id="ty-count">Estamos te redirecionando em 3…</p>
+      <p class="ty__fallback">Não abriu? Toque no botão acima.</p>
+    </div>
+  </main>
+
+  <script>
+  (function () {
+    "use strict";
+    var CFG = window.CONFIG || {};
+    var dataLayer = (window.dataLayer = window.dataLayer || []);
+    function ss(k){ try { return sessionStorage.getItem(k) || ""; } catch(e){ return ""; } }
+
+    var grupo = CFG.grupoWhatsApp || "#";
+    var eventId = ss("ecom360_event_id");
+    var nome = ss("ecom360_nome");
+    var e164 = ss("ecom360_whatsapp_e164");
+    var primeiro = (nome.split(" ")[0] || "").trim();
+
+    // Título personalizado
+    var title = document.getElementById("ty-title");
+    if (title) title.textContent = primeiro ? ("Vaga garantida, " + primeiro + ".") : "Vaga garantida.";
+
+    // Botão manual (obrigatório: navegador in-app bloqueia redirect programático)
+    var btn = document.getElementById("btn-grupo");
+    if (btn) {
+      btn.href = grupo;
+      btn.addEventListener("click", function () {
+        dataLayer.push({ event: "click_grupo", event_id: eventId });
+      });
+    }
+
+    // Conversão principal — no load da página de obrigado (ponto de disparo confiável)
+    dataLayer.push({
+      event: "lead_confirmado",
+      form: "captura_aulao",
+      event_id: eventId,
+      user_data: {
+        fn: primeiro.toLowerCase(),
+        ph: e164
+      }
+    });
+
+    // Contador visível + auto-redirect
+    var el = document.getElementById("ty-count");
+    var delay = CFG.delayRedirect || 2500;
+    var secs = Math.max(1, Math.round(delay / 1000));
+    if (el) el.textContent = "Estamos te redirecionando em " + secs + "…";
+
+    var iv = setInterval(function () {
+      secs -= 1;
+      if (secs <= 0) {
+        clearInterval(iv);
+        if (el) el.textContent = "Redirecionando…";
+        return;
+      }
+      if (el) el.textContent = "Estamos te redirecionando em " + secs + "…";
+    }, 1000);
+
+    setTimeout(function () {
+      window.location.href = grupo;
+    }, delay);
+  })();
+  </script>
+</body>
+</html>

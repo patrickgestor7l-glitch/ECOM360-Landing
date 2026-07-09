@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Aula gratuita: como estruturar um e-commerce que vende · ECOM360</title>
+  <meta name="description" content="Aula ao vivo e gratuita com Tamara Marinho. 27 de julho, 20h. O passo a passo real para construir ou reestruturar seu e-commerce do zero.">
+
+  <!-- Open Graph / compartilhamento -->
+  <meta property="og:title" content="Aula gratuita: como estruturar um e-commerce que vende">
+  <meta property="og:description" content="27 de julho, 20h. Ao vivo com Tamara Marinho. Vagas limitadas.">
+  <meta property="og:image" content="https://SEU_DOMINIO/og-image.jpg"><!-- TODO: cliente preencher domínio -->
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#241C37">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Config PRIMEIRO: dataLayer e GTM dependem dele -->
+  <script src="assets/js/config.js"></script>
+
+  <!-- dataLayer inicializado ANTES do GTM (obrigatório) + injeção do snippet oficial -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    (function(){
+      var id = (window.CONFIG && window.CONFIG.gtmId) || "";
+      if (!id) return; // sem ID, não injeta e não quebra o build
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',id);
+    })();
+  </script>
+
+  <!-- Preload das fontes críticas (ativa quando os .woff2 existirem) -->
+  <link rel="preload" href="assets/fonts/Fraunces-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/PlusJakartaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- GTM noscript: PRIMEIRO elemento do body -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDS4ZD45"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero section--ink grain">
+    <div class="site-header">
+      <div class="container">
+        <img class="logo" src="assets/img/logo-ecom360.svg" alt="ECOM360"
+             onerror="this.outerHTML='<span class=&quot;header-note&quot;>ECOM360</span>'">
+        <span class="header-note">Aula ao vivo · 27/07</span>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow hero__eyebrow">Aula ao vivo e gratuita · 27 de julho, 20h</p>
+          <h1>
+            Loja bonita não vende.<br>
+            Loja <span class="ink-underline">estruturada<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 40 3, 90 3, 130 6 S 185 9, 197 5"/></svg></span> vende.
+          </h1>
+          <p class="hero__sub">
+            Aula ao vivo e gratuita com Tamara Marinho. O passo a passo real para
+            construir ou reestruturar seu e-commerce do zero — sem achismo, sem
+            desperdiçar dinheiro e sem travar no meio do caminho.
+          </p>
+          <div class="pills">
+            <span class="pill">27/07, segunda, 20h</span>
+            <span class="pill">Online e ao vivo</span>
+            <span class="pill">100% gratuito</span>
+          </div>
+        </div>
+
+        <!-- Card do formulário -->
+        <div class="form-card" id="inscricao">
+          <h2 class="form-card__title">Garanta sua vaga no Grupo VIP</h2>
+          <p class="form-card__support">
+            A aula é liberada só lá dentro. São 1.000 vagas — e depois o grupo fecha.
+          </p>
+
+          <form id="lead-form" novalidate>
+            <!-- Honeypot -->
+            <div class="hp" aria-hidden="true">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field">
+              <label for="nome">Seu nome</label>
+              <input type="text" id="nome" name="nome" autocomplete="name"
+                     placeholder="Como podemos te chamar?"
+                     aria-describedby="err-nome" required>
+              <p class="field-error" id="err-nome" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="whatsapp">Seu WhatsApp</label>
+              <input type="tel" id="whatsapp" name="whatsapp" inputmode="tel"
+                     autocomplete="tel" placeholder="(00) 00000-0000"
+                     aria-describedby="err-whatsapp" required maxlength="16">
+              <p class="field-error" id="err-whatsapp" aria-live="polite"></p>
+            </div>
+
+            <button type="submit" class="btn" id="submit-btn">
+              <span class="btn__spinner" aria-hidden="true"></span>
+              <span class="btn__label">Garantir minha vaga</span>
+            </button>
+
+            <p class="form-microcopy">
+              Você será levado direto para o Grupo VIP no WhatsApp.
+            </p>
+            <p class="form-legal">
+              Sem spam. Você sai do grupo quando quiser. Ao continuar, você concorda com a
+              <a href="politica-de-privacidade.html">Política de Privacidade</a> e em receber
+              mensagens sobre o evento no WhatsApp.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr class="hairline-grad" style="margin-inline:var(--pad-x)">
+  </header>
+
+  <main>
+    <!-- ================= MÓDULO 01 — DOR ================= -->
+    <section class="section section--paper module">
+      <div class="container module__grid">
+        <div class="module__rail">Módulo 01 · A dor</div>
+        <div class="module__body">
+          <div class="dor__intro">
+            <p class="eyebrow">A verdade que ninguém te conta</p>
+            <h2 style="margin-top:14px">Quase ninguém desiste do e-commerce por falta de vontade.</h2>
+            <p class="text-muted" style="margin-top:16px">
+              Desiste por falta de ordem. Começa pelo Instagram antes de definir o nicho.
+              Escolhe o fornecedor pelo preço. Monta a loja sem saber precificar. Anuncia
+              sem ter estrutura pra receber a venda. E quando não vende, conclui que
+              “e-commerce não é pra mim”.<br><br>
+              <strong>Não é. É que ninguém nunca te mostrou a ordem certa.</strong>
+            </p>
+          </div>
+
+          <div class="dor-grid" id="dor-grid">
+            <article class="dor-card">
+              <p class="dor-card__head">“Abri a loja e não veio ninguém.”</p>
+              <p class="dor-card__sub">Tráfego não resolve loja mal estruturada. Só acelera o prejuízo.</p>
+            </article>
+            <article class="dor-card">
+              <p class="dor-card__head">“Vendo, mas no fim do mês não sobra nada.”</p>
+              <p class="dor-card__sub">Precificação errada é o erro mais caro e mais silencioso do e-commerce.</p>
+            </article>
+            <article class="dor-card">
+              <p class="dor-card__head">“Já vi mil vídeos e continuo travada.”</p>
+              <p class="dor-card__sub">Conteúdo solto não constrói negócio. Sequência constrói.</p>
+            </article>
+            <article class="dor-card">
+              <p class="dor-card__head">“Faço tudo ao mesmo tempo e não termino nada.”</p>
+              <p class="dor-card__sub">Sem prioridade, todo dia parece produtivo e nenhum mês avança.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÓDULO 02 — AGENDA ================= -->
+    <section class="section section--cream module">
+      <div class="container module__grid">
+        <div class="module__rail">Módulo 02 · A aula</div>
+        <div class="module__body">
+          <div class="agenda__head">
+            <p class="eyebrow">1 hora, ao vivo</p>
+            <h2>O que vai estar em cima da mesa</h2>
+          </div>
+          <ol class="agenda-list">
+            <li class="agenda-item">
+              <span class="agenda-item__num">01</span>
+              <span class="agenda-item__text">O método dos 6 estágios — Planejar, Estruturar, Construir, Configurar, Vender, Escalar — e em qual deles você está travada agora.</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">02</span>
+              <span class="agenda-item__text">Precificação: a conta que quase todo iniciante erra e que transforma venda em prejuízo. Markup e margem, na prática.</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">03</span>
+              <span class="agenda-item__text">Nicho, fornecedor e plataforma: como decidir os três em dias, não em meses.</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">04</span>
+              <span class="agenda-item__text">O que precisa estar pronto antes do primeiro anúncio — e o que pode esperar sem prejuízo nenhum.</span>
+            </li>
+            <li class="agenda-item">
+              <span class="agenda-item__num">05</span>
+              <span class="agenda-item__text">Como organizar os próximos 30 dias pra sair da aula com a loja saindo do papel.</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÓDULO 03 — AUTORIDADE ================= -->
+    <section class="section section--paper module">
+      <div class="container module__grid">
+        <div class="module__rail">Módulo 03 · Quem ensina</div>
+        <div class="module__body">
+          <div class="author-grid">
+            <div class="author-photo">
+              <img src="assets/img/tamara-retrato.jpg" width="800" height="1000" loading="lazy"
+                   alt="Retrato de Tamara Marinho"
+                   onerror="this.parentNode.innerHTML='<div class=&quot;img-placeholder&quot;>tamara-retrato.jpg</div>'">
+            </div>
+            <div class="author-body">
+              <p class="eyebrow">Quem vai te ensinar</p>
+              <h2>Tamara Marinho</h2>
+              <p>Tamara não é “especialista em e-commerce”. Ela vive de e-commerce.</p>
+              <!-- TODO: cliente preencher -->
+              <p class="todo">[EDITAR: 2 a 3 linhas com a trajetória real — há quantos anos vende online, quantas lojas administra, o que já construiu do zero. Sem número inventado.]</p>
+              <p>
+                Tudo o que ela vai mostrar na aula é o que ela usa nas próprias lojas —
+                o que funcionou, o que deu errado, e o que ela faria diferente se
+                começasse hoje.
+              </p>
+              <a class="author-ig" href="https://instagram.com/tamara_ecommerce" target="_blank" rel="noopener">@tamara_ecommerce →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÓDULO 04 — PRA QUEM É ================= -->
+    <section class="section section--cream module">
+      <div class="container module__grid">
+        <div class="module__rail">Módulo 04 · Pra quem é</div>
+        <div class="module__body">
+          <div class="fit__head">
+            <h2>Essa aula é pra você?</h2>
+          </div>
+          <div class="fit-cols">
+            <div class="fit-col fit-col--yes">
+              <h3>É pra você se:</h3>
+              <ul class="fit-list">
+                <li>Você quer abrir seu e-commerce e não sabe por onde começar.</li>
+                <li>Você já tem uma loja no ar e ela não vende.</li>
+                <li>Você tem o produto, mas não tem estrutura.</li>
+                <li>Você está perdida na ordem das etapas.</li>
+              </ul>
+            </div>
+            <div class="fit-col fit-col--no">
+              <h3>Não é pra você se:</h3>
+              <ul class="fit-list">
+                <li>Você procura fórmula mágica ou renda rápida.</li>
+                <li>Você não pretende dedicar tempo ao seu negócio.</li>
+                <li>Você quer resultado sem executar nada.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÓDULO 05 — EVENTO + CONTAGEM ================= -->
+    <section class="section section--ink grain module">
+      <div class="container module__grid">
+        <div class="module__rail">Módulo 05 · O evento</div>
+        <div class="module__body">
+          <div class="event-card">
+            <p class="eyebrow">Reserve na agenda</p>
+            <h2>Segunda-feira, 27 de julho, às 20h</h2>
+            <div class="event-facts">
+              <div class="event-fact">
+                <p class="event-fact__label">Data</p>
+                <p class="event-fact__value">27 de julho de 2026, segunda-feira</p>
+              </div>
+              <div class="event-fact">
+                <p class="event-fact__label">Horário</p>
+                <p class="event-fact__value">20h (horário de Brasília)</p>
+              </div>
+              <div class="event-fact">
+                <p class="event-fact__label">Formato</p>
+                <p class="event-fact__value">Online e ao vivo</p>
+              </div>
+              <div class="event-fact">
+                <p class="event-fact__label">Investimento</p>
+                <p class="event-fact__value">Gratuito</p>
+              </div>
+            </div>
+
+            <div class="countdown" id="countdown">
+              <div class="countdown__grid" id="cd-grid">
+                <div class="cd-unit"><div class="cd-unit__num" data-cd="dias">--</div><div class="cd-unit__label">Dias</div></div>
+                <div class="cd-unit"><div class="cd-unit__num" data-cd="horas">--</div><div class="cd-unit__label">Horas</div></div>
+                <div class="cd-unit"><div class="cd-unit__num" data-cd="min">--</div><div class="cd-unit__label">Min</div></div>
+                <div class="cd-unit"><div class="cd-unit__num" data-cd="seg">--</div><div class="cd-unit__label">Seg</div></div>
+              </div>
+              <div class="countdown__live" id="cd-live" hidden>A aula começa agora — entre no grupo</div>
+            </div>
+
+            <p class="event-warn">
+              O link da aula é enviado exclusivamente dentro do Grupo VIP.
+              Quem não está no grupo, não assiste.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÓDULO 06 — TRANSPARÊNCIA ================= -->
+    <section class="section section--paper module">
+      <div class="container module__grid">
+        <div class="module__rail">Módulo 06 · Transparência</div>
+        <div class="module__body">
+          <div class="transp">
+            <p class="eyebrow">Transparência total</p>
+            <h2>No fim da aula, sim, vai ter oferta.</h2>
+            <p class="text-muted">
+              Preferimos te avisar agora. Depois de entregar o conteúdo, vamos abrir
+              por tempo limitado o acesso ao ECOM360 completo — o material que estrutura
+              sua loja do zero, módulo por módulo, com plano de ação e ferramentas.
+            </p>
+            <p class="text-muted">
+              Você não precisa comprar nada pra assistir a aula e aplicar tudo que for
+              ensinado nela. Mas se quiser acelerar, o caminho vai estar aberto
+              naquele dia — e só naquele dia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÓDULO 07 — FAQ ================= -->
+    <section class="section section--cream module">
+      <div class="container module__grid">
+        <div class="module__rail">Módulo 07 · Dúvidas</div>
+        <div class="module__body">
+          <div class="faq__head">
+            <p class="eyebrow">Ainda com dúvida?</p>
+            <h2>Perguntas frequentes</h2>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>A aula é gratuita mesmo?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+              <div class="faq-answer">É. Sem pegadinha, sem cartão, sem cadastro pago. Você entra no grupo e recebe o acesso.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Onde vai ser a aula?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+              <div class="faq-answer">Online e ao vivo. O link é enviado dentro do Grupo VIP no WhatsApp, no dia.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Vai ficar gravada?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+              <div class="faq-answer">A aula é ao vivo. Se houver replay, será por tempo limitado e avisado apenas no grupo. Garanta sua presença ao vivo.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Preciso já ter uma loja?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+              <div class="faq-answer">Não. A aula serve tanto pra quem vai começar do zero quanto pra quem já tem loja e quer reestruturar.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Meu nicho é diferente. Serve pra mim?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+              <div class="faq-answer">Serve. O método é sobre estrutura de negócio, não sobre um produto específico.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Por que WhatsApp e não e-mail?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+              <div class="faq-answer">Porque tudo acontece no grupo: os avisos, o material, o link da aula e os bônus. É o único canal.</div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL ================= -->
+    <section class="section final-cta section--ink grain">
+      <div class="container">
+        <div class="final-cta__inner">
+          <hr class="hairline-grad" style="margin-inline:auto 0;margin-bottom:26px">
+          <h2>Segunda-feira, 20h.<br>Sua loja pode começar aí.</h2>
+          <p>São 1.000 vagas no Grupo VIP. Quando fechar, fechou.</p>
+          <a href="#inscricao" class="btn" data-scroll-to-form>Quero minha vaga</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="site-footer section--ink" style="padding-block:44px">
+    <div class="container">
+      <img class="footer-logo" src="assets/img/logo-ecom360.svg" alt="ECOM360"
+           onerror="this.outerHTML='<div class=&quot;header-note&quot; style=&quot;margin-bottom:20px&quot;>ECOM360</div>'">
+      <!-- TODO: cliente preencher -->
+      <p class="footer-line">ECOM360 · [EDITAR: Razão Social] · CNPJ [EDITAR]</p>
+      <p class="footer-links">
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="termos.html">Termos de Uso</a>
+      </p>
+      <p class="footer-fine">
+        © 2026 ECOM360. Todos os direitos reservados.<br>
+        Este site não é afiliado ao Facebook ou a qualquer entidade da Meta Platforms, Inc.
+        Os resultados citados dependem de dedicação e execução individual e não constituem
+        promessa de faturamento.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ================= BARRA STICKY MOBILE ================= -->
+  <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
+    <span class="sticky-bar__text">27/07 · 20h · Grátis</span>
+    <a href="#inscricao" class="btn" data-scroll-to-form>Garantir vaga</a>
+  </div>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
