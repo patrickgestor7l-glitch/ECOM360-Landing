@@ -167,12 +167,12 @@ Proteções anti-bot sem atrito: **honeypot** (campo `empresa` oculto) + **time-
 | Pixel ID da Meta | dentro do GTM | Gerenciador de Eventos |
 | Domínio final | `og:image` no `index.html` | Vercel/Netlify ou domínio próprio |
 | `og-image.jpg` (1200×630) | raiz do projeto | arte com título + data + rosto |
-| Foto da Tamara | `assets/img/tamara-retrato.jpg` | retrato 4:5, 800×1000, boa luz |
-| Bio real da Tamara | Módulo 03 (`[EDITAR]` no `index.html`) | tempo de mercado, nº de lojas |
-| Logo oficial | `assets/img/logo-ecom360.svg` | vetor claro p/ fundo escuro (há um provisório) |
+| ~~Foto da Tamara~~ | `assets/img/tamara-retrato.jpg` | ✅ recebida e integrada |
+| ~~Bio real da Tamara~~ | Módulo 03 do `index.html` | ✅ recebida e integrada |
+| ~~Logo oficial~~ | `assets/img/logo-ecom360.jpg` | ✅ recebido e integrado (selo compacto no header/rodapé) |
 | Fontes `.woff2` | `assets/fonts/` | ver `assets/fonts/LEIA-ME.txt` |
-| Razão social + CNPJ | rodapé (`[EDITAR]`) | contrato social |
-| E-mail de suporte | rodapé + Política de Privacidade | qualquer e-mail monitorado |
+| ~~Razão social + CNPJ~~ | rodapé / legal | dispensado a pedido da cliente — não será exibido |
+| ~~E-mail de suporte~~ | rodapé + Política/Termos | ✅ `Tamara_marinho2006@yahoo.com.br` |
 | Revisar Política/Termos | `politica-de-privacidade.html`, `termos.html` | rascunhos prontos, cliente valida |
 
 Enquanto não houver os dados, os placeholders ficam visíveis com
